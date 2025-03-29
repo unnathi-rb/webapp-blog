@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blog</title>
+</head>
+<style>
+    body {
+        h1{
+            font-size: xx-large;
+            text-align: center;
+        }
+
+   background-color: #996a92;
+   font-family: Arial, sans-serif;
+   font-size: larger;
+
+ }
+
+</style>
+<body>
+    <h1>All Posts</h1>
+    <a href="/new">Create New Post</a>
+    <ul>
+        <% posts.forEach(post => { %>
+            <li>
+                <strong><%= post.title %></strong>
+                <p><%= post.content %></p>
+                <a href="/posts/<%= post._id %>/edit">Edit</a>
+                <form action="/posts/<%= post._id %>?_method=DELETE" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
